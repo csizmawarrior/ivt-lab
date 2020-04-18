@@ -80,6 +80,17 @@ public class GT4500 implements SpaceShip {
         // try to fire both of the torpedo stores
         //TODO implement feature
 
+          //here i fire all torpedos so both stores will get empty. The specification didn't include what order should the be
+          //fired in, so i first fire all primary then all secondary torpedos, because this way i don't need 2 more variables to keep 
+          //track of their stores, while firing once the primary then the secondary in the cycle.
+          while(! primaryTorpedoStore.isEmpty()) {
+            firingSuccess = primaryTorpedoStore.fire(1);
+          }
+          while (! secondaryTorpedoStore.isEmpty()) {
+              firingSuccess = secondaryTorpedoStore.fire(1);
+              
+            }
+
         break;
     }
 
